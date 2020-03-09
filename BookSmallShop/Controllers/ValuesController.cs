@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BookSmallShopServer;
+using BookSmallShopServer.Common;
 using BookSmallShopServer.DatabaseTable;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,12 +15,13 @@ namespace BookSmallShop.Controllers
     {
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<T_PersonalCenter_User> Get()
         {
             int id = 1;
+
             T_PersonalCenter_User t_PersonalCenter_ = UserService.GetById(id);
 
-            return new string[] { "value1", "value2" };
+            return t_PersonalCenter_;
 
         }
 

@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
-
+using System.Configuration;
 namespace BookSmallShopServer.Common
 {
     /// <summary>
@@ -14,11 +14,8 @@ namespace BookSmallShopServer.Common
     /// </summary>
     public class SqlDapperHelper
     {
-        public readonly static IConfiguration Configuration;
-        static string connStrRead = Configuration.GetConnectionString("Read"); 
-        static string connStrWrite = Configuration.GetConnectionString("Write");
-
- 
+        static string connStrRead =ConfigHelper.GetValue("ConnectionStrings", "SqlConn");//读取connectionStrings配置 "Server=116.62.47.55;Database=BookSmallDB;User ID=sa;Password=Sa123456;";
+        static string connStrWrite = ConfigHelper.GetValue("ConnectionStrings", "SqlConn");
         public static IDbConnection GetConnection(bool useWriteConn)
         {
             if (useWriteConn)
