@@ -1,30 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using BookSmallShopServer;
+﻿using System.Threading.Tasks;
 using BookSmallShopServer.Common;
 using BookSmallShopServer.DatabaseTable;
+using BookSmallShopServer.Server;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace BookSmallShop.Controllers
 {
+    /// <summary>
+    /// 默认控制器
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        // GET api/values
+        /// <summary>
+        /// Get请求  异步
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public ActionResult<T_PersonalCenter_User> Get()
+        public async Task<ActionResult<ResultData>> Get()
         {
+         
             int id = 1;
-
-            T_PersonalCenter_User t_PersonalCenter_ = UserService.GetById(id);
-
-            return t_PersonalCenter_;
-
+            ResultData result = new ResultData();
+            T_PersonalCenter_User model = await UserService.GetById(id);
+            result.Data = model;
+            return result;
         }
-
         // GET api/values/5
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
@@ -36,6 +39,7 @@ namespace BookSmallShop.Controllers
         [HttpPost]
         public void Post([FromBody] string value)
         {
+
         }
 
         // PUT api/values/5

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BookSmallShopWebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:BookSmallShop.Controllers.ValuesController">
+            <summary>
+            默认控制器
+            </summary>
+        </member>
+        <member name="M:BookSmallShop.Controllers.ValuesController.Get">
+            <summary>
+            Get请求
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

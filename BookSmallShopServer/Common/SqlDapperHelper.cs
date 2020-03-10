@@ -14,8 +14,9 @@ namespace BookSmallShopServer.Common
     /// </summary>
     public class SqlDapperHelper
     {
-        static string connStrRead =ConfigHelper.GetValue("ConnectionStrings", "SqlConn");//读取connectionStrings配置 "Server=116.62.47.55;Database=BookSmallDB;User ID=sa;Password=Sa123456;";
-        static string connStrWrite = ConfigHelper.GetValue("ConnectionStrings", "SqlConn");
+
+        static string connStrRead = ReadConfig.ReadAppSettings_File("ConnectionStrings:SqlConn"); //ConfigHelper.GetValue("ConnectionStrings", "SqlConn");//读取connectionStrings配置 "Server=116.62.47.55;Database=BookSmallDB;User ID=sa;Password=Sa123456;";
+        static string connStrWrite = ReadConfig.ReadAppSettings_File("ConnectionStrings:SqlConn");//ConfigHelper.GetValue("ConnectionStrings", "SqlConn");
         public static IDbConnection GetConnection(bool useWriteConn)
         {
             if (useWriteConn)

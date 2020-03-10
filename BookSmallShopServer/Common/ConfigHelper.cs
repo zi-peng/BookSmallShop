@@ -6,6 +6,10 @@ using System.Text;
 
 namespace BookSmallShopServer.Common
 {
+
+    /// <summary>
+    /// 读取配置文件信息（第一种方法）
+    /// </summary>
     public class ConfigHelper
     {
         public static string GetValue(string RootKey, string Secendkey = "", string ThirdKey = "")
@@ -20,7 +24,6 @@ namespace BookSmallShopServer.Common
             if (string.IsNullOrEmpty(Secendkey))
                 return rootValue?.Value ?? "";
             var sv = rootValue.GetSection(Secendkey);
-
             //三级
             if (string.IsNullOrEmpty(ThirdKey))
                 return sv?.Value ?? "";
