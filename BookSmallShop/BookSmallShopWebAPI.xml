@@ -11,7 +11,7 @@
         </member>
         <member name="M:BookSmallShop.Controllers.ValuesController.Get">
             <summary>
-            Get请求
+            Get请求  异步
             </summary>
             <returns></returns>
         </member>
