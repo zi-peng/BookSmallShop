@@ -2,7 +2,6 @@
 using BookSmallShopServer.DatabaseTable;
 using System;
 using System.Threading.Tasks;
-
 namespace BookSmallShopServer.Server
 {
     public class UserService

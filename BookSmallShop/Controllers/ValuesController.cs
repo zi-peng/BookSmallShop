@@ -20,8 +20,7 @@ namespace BookSmallShop.Controllers
         /// <returns></returns>
         [HttpGet]
         public async Task<ActionResult<ResultData>> Get()
-        {
-         
+        {       
             int id = 1;
             ResultData result = new ResultData();
             T_PersonalCenter_User model = await UserService.GetById(id);
